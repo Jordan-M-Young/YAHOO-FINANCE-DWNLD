@@ -13,7 +13,7 @@ import csv
 import os
 
 
-def Check_Downloads_Yahoo(tickers,directory):
+def check_downloads_yahoo(tickers,directory):
     """checks working directory for downloaded stock files
     prevents going over per day limit"""
     files = []
@@ -76,11 +76,10 @@ def locate_click(driver,elem_path,Flag):
             x = driver.find_element_by_xpath(elem_path)
             x.click()
         except WebDriverException:
-            print(elem_path)
             Flag = True
             return Flag
         
-def Stock_Download_Yahoo(ticker,directory,download_dir,Flag,frequency='"1d"',
+def stock_download_yahoo(ticker,directory,download_dir,Flag,frequency='"1d"',
                          driverpath='E:/PythonProjects/Yahoo_DataBase/chromedriver.exe'):
     """downloads stock data csv file for the selected ticker"""
     driver = webdriver.Chrome(driverpath)
