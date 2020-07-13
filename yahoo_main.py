@@ -31,7 +31,7 @@ count = 0
 downloads = []
 failed_downloads = []
 Flag = False
-previous_downloads = sdy.Check_Downloads_Yahoo(tickers,directory)
+previous_downloads = sdy.check_downloads_yahoo(tickers,directory)
 
 for i in range(len(tickers)):
     if tickers[i] in previous_downloads:
@@ -39,7 +39,7 @@ for i in range(len(tickers)):
     else:
         try:
             #change frequency to 1mo for monthly data and 1wk for weekly data
-            sdy.Stock_Download_Yahoo(tickers[i],directory,download_dir,Flag,frequency='"1d"')
+            sdy.stock_download_yahoo(tickers[i],directory,download_dir,Flag,frequency='"1d"')
             if Flag == False:
                 count += 1
                 downloads.append(tickers[i])
