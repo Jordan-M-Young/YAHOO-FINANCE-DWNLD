@@ -12,6 +12,14 @@ import shutil
 import csv
 import os
 
+def get_bad_tickers(path):
+    if os.path.exists(path):
+        bad_tickers = pd.read_csv(path)
+        bad_tickers = list(bad_tickers.iloc[:,1])
+    else:
+        bad_tickers = []
+    
+    return bad_tickers
 
 def check_downloads_yahoo(tickers,directory):
     """checks working directory for downloaded stock files
